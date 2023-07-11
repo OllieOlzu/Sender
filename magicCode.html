@@ -1,48 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+    <title>Magic Code</title>
+    <script>
+        function displayMagicCode() {
+            // Retrieve the magic code from local storage
+            var magicCode = localStorage.getItem("clickCountACN");
+
+            // Display the magic code on the webpage
+            var magicCodeElement = document.getElementById("magicCode");
+            magicCodeElement.textContent = magicCode;
+        }
+    </script>
 </head>
-<body>
-  <div class="container">
-    <form id="contactForm" action="cca036270e87ae56f150890c04700e42" method="POST">
-      <input type="hidden" name="product" id="pro">
-      <input type="hidden" name="Continent" value="New Zealand">
-      <input type="hidden" name="AcountNumber" id="encodedacountnum">
-    </form>
-  </div>
-  <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-      // Set hidden fields from local storage
-      // Function to get URL parameters
-      function getUrlParameter(name) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);
-      }
-
-      // Get the value of the 'ACN' parameter from the URL
-      const acnValue = getUrlParameter("product");
-      
-      document.getElementById('encodedacountnum').value = localStorage.getItem('clickCountACN');
-      document.getElementById('pro').value = acnValue;
-      localStorage.removeItem('clickCountACN');
-      
-      // Get current New Zealand time
-      const now = new Date().toLocaleString('en-NZ', { timeZone: 'Pacific/Auckland' });
-
-      // Add current New Zealand time as a hidden field
-      const timeField = document.createElement('input');
-      timeField.type = 'hidden';
-      timeField.name = 'NewZealandTime';
-      timeField.value = now;
-      document.getElementById('contactForm').appendChild(timeField);
-
-      // Submit the form
-      document.getElementById('contactForm').submit();
-    });
-  </script>
+<body onload="displayMagicCode()">
+    <h1>Your Magic Code is:</h1>
+    <p id="magicCode"></p>
 </body>
 </html>
