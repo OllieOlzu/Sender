@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magic Code</title>
+    <script>
+        function displayMagicCode() {
+            // Retrieve the magic code from local storage
+            var magicCode = localStorage.getItem("clickCountACN");
+
+            // Display the magic code on the webpage
+            var magicCodeElement = document.getElementById("magicCode");
+            magicCodeElement.textContent = magicCode;
+        }
+    </script>
+</head>
+<body onload="displayMagicCode()">
+    <h1>Your Magic Code is:</h1>
+    <p id="magicCode"></p>
+</body>
+</html>
